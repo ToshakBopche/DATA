@@ -1,0 +1,31 @@
+1) Create a empty Target Group
+
+2) Create a application load balancer 
+   
+3) create Auto scaling group
+   name
+   Launch Template -- select (Ceated during load bancer)
+   (we can use launch template over launch configuration as we can edit launch template and also version it as per instance size or different environment but not launch configuration)
+   next
+   select VPC, select All Availability Zones
+   next
+   Attach a existing load balancer
+   Choose from your load balancer target group
+   Select target group
+   Health checks select both EC2(auto) & ELB
+   next
+   Group size Desired capacity - 2
+              minimum capacity - 1
+              maximum capacity - 4
+   Scaling policies - Target tracking scaling policy
+   Scaling policy name - Target Tracking Policy
+   metric type - Average CPU utilization
+   Target value - 50
+   next
+   Notification 
+   SNS Topic - select a topic
+   Event type - select all
+   next
+   tag
+   next
+   create auto scaling group
